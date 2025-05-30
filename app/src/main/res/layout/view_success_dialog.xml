@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_300sdp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/drawable_dialog_background"
+    android:padding="@dimen/_20sdp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dialogImage"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_100sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_image_dialog_success"
+        android:layout_marginStart="@dimen/_30sdp"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogHeading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogImage"
+        style="@style/AppTheme.BaseTextView.25BlackMedium"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/check_your_email"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialogDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogHeading"
+        style="@style/AppTheme.BaseTextView.14GreyRegular"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/dialog_description"
+        android:maxLines="3"
+        android:textAlignment="center"
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/okButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogDescription"
+        style="@style/AppTheme.BaseButton.BlackButton"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/ok"
+    />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

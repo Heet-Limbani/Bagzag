@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        style="@style/AppTheme.BaseGuidLine.Horizontal"
+        app:layout_constraintGuide_percent="0.03"
+    />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageOne"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_240sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_welcome_one_image_one"
+            style="@style/AppTheme.BaseImageView.RoundImage"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageTwo"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_170sdp"
+            app:layout_constraintStart_toEndOf="@id/imageOne"
+            app:layout_constraintEnd_toEndOf="@id/imageOne"
+            app:layout_constraintTop_toBottomOf="@id/imageOne"
+            app:layout_constraintBottom_toBottomOf="@id/imageOne"
+            android:src="@drawable/ic_welcome_one_image_two"
+            android:layout_marginTop="@dimen/_145sdp"
+            style="@style/AppTheme.BaseImageView.RoundImage"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageThree"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/ic_welcome_one_image_three"
+            app:layout_constraintEnd_toStartOf="@id/imageTwo"
+            app:layout_constraintTop_toBottomOf="@id/imageOne"
+            android:layout_marginEnd="@dimen/_15sdp"
+            style="@style/AppTheme.BaseImageView.RoundImage"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collectionTitle"
+        app:layout_constraintStart_toStartOf="@id/imageContainer"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        style="@style/AppTheme.BaseTextView.18PinkBold"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:text="@string/trendy_collection"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collectionDescription"
+        app:layout_constraintStart_toStartOf="@id/collectionTitle"
+        app:layout_constraintTop_toBottomOf="@id/collectionTitle"
+        style="@style/AppTheme.BaseTextView.34BlackLight"
+        android:text="@string/let_s_create_your_own"
+        android:maxLines="2"
+    />
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

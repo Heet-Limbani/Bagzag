@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/AppTheme.BaseScrollView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            style="@style/AppTheme.BaseGuidLine.Horizontal"
+            app:layout_constraintGuide_percent="0.03"
+        />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            style="@style/AppTheme.BaseGuidLine.Vertical"
+            app:layout_constraintGuide_percent="0.05"
+        />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            style="@style/AppTheme.BaseGuidLine.Vertical"
+            app:layout_constraintGuide_percent="0.95"
+        />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop"
+            app:layout_constraintBottom_toTopOf="@id/tabLayout"
+            android:layout_marginBottom="@dimen/_20sdp"
+        />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintBottom_toTopOf="@id/signUpButton"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:tabRippleColor="@color/transparent"
+            app:tabIndicatorHeight="@dimen/_5sdp"
+            app:tabIndicatorColor="@color/pink"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorFullWidth="true"
+            app:tabMinWidth="50dp"
+            app:tabBackground="@color/grey_20"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUpButton"
+            app:layout_constraintEnd_toStartOf="@id/signInButton"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintBottom_toTopOf="@id/guestLink"
+            style="@style/AppTheme.BaseButton.SignUpButton"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signInButton"
+            app:layout_constraintStart_toEndOf="@id/signUpButton"
+            app:layout_constraintTop_toTopOf="@id/signUpButton"
+            app:layout_constraintBottom_toBottomOf="@id/signUpButton"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            style="@style/AppTheme.BaseButton.BlackButton"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@string/sign_in"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/guestLink"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/AppTheme.BaseTextView.18GreyMedium"
+            android:text="@string/continue_as_guest"
+            android:layout_marginBottom="@dimen/_20sdp"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

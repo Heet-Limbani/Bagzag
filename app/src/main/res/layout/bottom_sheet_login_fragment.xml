@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/drawable_bottom_sheet_background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.05"
+    />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.95"
+    />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_55sdp"
+        android:layout_height="@dimen/_55sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/welcomeMessage"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:src="@drawable/ic_logo"
+        android:layout_marginTop="@dimen/_30sdp"
+    />
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcomeMessage"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/signHeading"
+        style="@style/AppTheme.BaseTextView.16BlackMedium"
+        android:text="@string/welcome_back"
+        android:layout_marginBottom="@dimen/_5sdp"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/signHeading"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/facebook"
+        style="@style/AppTheme.BaseTextView.24BlackLight"
+        android:text="@string/sign_in_to"
+        android:layout_marginBottom="@dimen/_20sdp"
+    />
+    
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/facebook"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintBottom_toTopOf="@id/orImage"
+        app:layout_constraintEnd_toStartOf="@id/google"
+        android:layout_marginBottom="@dimen/_26sdp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:src="@drawable/ic_facebook"
+        style="@style/AppTheme.BaseImageView"
+    />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/google"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toEndOf="@id/facebook"
+        app:layout_constraintEnd_toStartOf="@id/apple"
+        app:layout_constraintTop_toTopOf="@id/facebook"
+        app:layout_constraintBottom_toBottomOf="@id/facebook"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:src="@drawable/ic_google"
+        style="@style/AppTheme.BaseImageView"
+    />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/apple"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toEndOf="@id/google"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/orImage"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="@id/facebook"
+        app:layout_constraintBottom_toBottomOf="@id/facebook"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:src="@drawable/ic_apple"
+    />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/orImage"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/emailInput"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:src="@drawable/ic_or"
+        style="@style/AppTheme.BaseImageView"
+    />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emailInput"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/passwordInput"
+        style="@style/AppTheme.BaseEditText.Grey"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:hint="@string/email_phone_number"
+    />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/passwordInput"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toTopOf="@id/signInButton"
+        style="@style/AppTheme.BaseEditText.Grey"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:hint="@string/password"
+        android:drawableEnd="@drawable/ic_hide"
+        android:inputType="textPassword"
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signInButton"
+        app:layout_constraintBottom_toTopOf="@id/forgotPassword"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        style="@style/AppTheme.BaseButton.BlackButton"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:text="@string/sign_in"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/forgotPassword"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/AppTheme.BaseTextView.18GreyMedium"
+        android:text="@string/forgot_password_"
+        android:layout_marginBottom="@dimen/_20sdp"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
