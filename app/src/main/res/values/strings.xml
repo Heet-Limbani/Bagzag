@@ -45,4 +45,9 @@
     <string name="get_opt">Get OTP</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="_1">+1</string>
+    <string name="choose_your_country_code">Choose your country code</string>
+    <string name="search">Search</string>
+    <string name="canada">Canada</string>
+    <string name="phone_verification">Phone Verification</string>
+    <string name="phone_verification_description">Please enter the verification code, we sent to your Mobile Number</string>
 </resources>

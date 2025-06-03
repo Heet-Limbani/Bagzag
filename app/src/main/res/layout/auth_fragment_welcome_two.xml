@@ -18,7 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/guidelineTop">
 
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageOne"
             android:layout_width="@dimen/_120sdp"

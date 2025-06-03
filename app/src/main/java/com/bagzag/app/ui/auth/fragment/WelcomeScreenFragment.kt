@@ -3,7 +3,7 @@ package com.bagzag.app.ui.auth.fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bagzag.app.databinding.AuthFragmentWelcomeScreenBinding
-import com.bagzag.app.ui.auth.Adapter.AdapterWelcomeScreen
+import com.bagzag.app.ui.auth.adapter.AdapterWelcomeScreen
 import com.bagzag.app.ui.base.BaseFragment
 import com.google.android.material.tabs.TabLayoutMediator
 

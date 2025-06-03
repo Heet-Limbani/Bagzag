@@ -1,4 +1,4 @@
-package com.bagzag.app.ui.auth.Adapter
+package com.bagzag.app.ui.auth.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

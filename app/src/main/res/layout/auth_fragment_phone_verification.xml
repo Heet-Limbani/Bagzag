@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintTop_toTopOf="@id/guidelineTop"
-        android:text="@string/forgot_password"
+        android:text="@string/phone_verification"
         style="@style/AppTheme.BaseTextView.20BlackMedium"
     />
 
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintTop_toBottomOf="@id/heading"
-        android:src="@drawable/ic_lock_image"
+        android:src="@drawable/ic_phone_verification"
         style="@style/AppTheme.BaseImageView"
         android:layout_marginTop="@dimen/_20sdp"
     />
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/lockImage"
         style="@style/AppTheme.BaseTextView.12GreyRegular"
         android:layout_marginTop="@dimen/_20sdp"
-        android:text="@string/forgot_password_description"
+        android:text="@string/phone_verification_description"
         android:maxLines="2"
         android:textAlignment="center"
         android:layout_marginHorizontal="@dimen/_10sdp"

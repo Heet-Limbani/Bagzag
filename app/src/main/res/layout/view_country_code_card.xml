@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/countryCodeCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/lineTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_divider_grey"
+    />
+
+    <LinearLayout
+        android:id="@+id/countryCodeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp"
+        android:gravity="center_vertical">
+        
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/flagImage"         
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:src="@drawable/ic_flag_canada"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:scaleType="centerCrop"
+        />
+    
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countryName"
+            style="@style/AppTheme.BaseTextView.15BlackRegular"
+            android:layout_width="0dp"
+            android:text="@string/canada"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_weight="1"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/countryCode"
+            style="@style/AppTheme.BaseTextView.15BlackRegular"
+            android:text="@string/_1"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:maxLength="5"
+        />
+
+    </LinearLayout>
+
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/lineBottom"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_divider_grey"-->
+<!--    />-->
+</LinearLayout>

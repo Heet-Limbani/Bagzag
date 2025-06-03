@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_300sdp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/drawable_dialog_background"
-    android:padding="@dimen/_20sdp">
+    android:padding="@dimen/_20sdp"
+    android:layout_margin="@dimen/_10sdp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dialogImage"
@@ -22,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dialogImage"
-        style="@style/AppTheme.BaseTextView.25BlackMedium"
+        style="@style/AppTheme.BaseTextView.20BlackMedium"
         android:layout_marginTop="@dimen/_20sdp"
         android:text="@string/check_your_email"
     />
@@ -48,6 +49,5 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:text="@string/ok"
     />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
