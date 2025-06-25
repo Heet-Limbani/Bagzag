@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.bagzag.app.R
 import com.bagzag.app.databinding.BottomSheetLoginFragmentBinding
+import com.bagzag.app.ui.activity.DashboardActivity
 import com.bagzag.app.ui.base.BaseBottomSheetDialogFragment
+import com.bagzag.app.ui.dashboard.fragment.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,6 +42,12 @@ class LoginBottomSheetFragment:BaseBottomSheetDialogFragment<BottomSheetLoginFra
             navigator.load(ForgotPasswordFragment::class.java).replace(true,"ForgotPasswordFragment")
         }
 
+        binding.signInButton.setOnClickListener {
+            navigator.loadActivity(
+                DashboardActivity::class.java,
+                HomeFragment::class.java
+            ).byFinishingCurrent().start()
+        }
     }
 }
 

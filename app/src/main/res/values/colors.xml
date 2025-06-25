@@ -7,7 +7,9 @@
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#9FA2AA</color>
+    <color name="grey_92">#E3E3E3</color>
     <color name="grey_20">#209FA2AA</color>
     <color name="grey_background">#E5E5E5</color>
     <color name="pink">#F13AB1</color>
+    <color name="pink_20">#20F13AB1</color>
 </resources>

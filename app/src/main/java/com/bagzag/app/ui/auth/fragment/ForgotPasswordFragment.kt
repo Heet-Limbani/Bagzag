@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ForgotPasswordFragment:BaseFragment<AuthFragmentForgotPasswordBinding>() {
+class ForgotPasswordFragment : BaseFragment<AuthFragmentForgotPasswordBinding>() {
 
     var selectedPosition = 0
     var forgotType = ForgotType.EMAIL
@@ -41,6 +41,7 @@ class ForgotPasswordFragment:BaseFragment<AuthFragmentForgotPasswordBinding>() {
                             binding.submitButton.text = getString(R.string.submit)
                             forgotType = ForgotType.EMAIL
                         }
+
                         1 -> {
                             binding.emailInput.visibility = View.GONE
                             binding.mobileInput.visibility = View.VISIBLE
@@ -50,49 +51,54 @@ class ForgotPasswordFragment:BaseFragment<AuthFragmentForgotPasswordBinding>() {
                     }
                 }
             }
-            override fun onTabUnselected(tab: TabLayout.Tab?){}
-            override fun onTabReselected(tab: TabLayout.Tab?){}
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
 
         binding.submitButton.setOnClickListener {
 
-            when(forgotType){
+            when (forgotType) {
                 ForgotType.EMAIL -> {
                     val fragment = DialogSuccess()
                     val bundle = Bundle()
-                    bundle.putString("heading",getString(R.string.check_your_email))
-                    bundle.putString("subHeading",getString(R.string.dialog_description))
-                    bundle.putString("button",getString(R.string.ok))
-                    bundle.putString("navigation",WelcomeScreenFragment::class.java.name)
+                    bundle.putString("heading", getString(R.string.check_your_email))
+                    bundle.putString("subHeading", getString(R.string.dialog_description))
+                    bundle.putString("button", getString(R.string.ok))
+                    bundle.putString("navigation", WelcomeScreenFragment::class.java.name)
                     fragment.arguments = bundle
-                    fragment.show(childFragmentManager,"DialogSuccess")
+                    fragment.show(childFragmentManager, "DialogSuccess")
                 }
+
                 ForgotType.MOBILE -> {
-                    navigator.load(PhoneVerificationFragment::class.java).replace(true, "PhoneVerificationFragment")
+                    val bundle = Bundle()
+                    bundle.putString("nextPage", "ResetPasswordFragment")
+                    navigator.load(PhoneVerificationFragment::class.java)
+                        .replace(true, "PhoneVerificationFragment")
                 }
             }
         }
 
         val countryCodeList = mutableListOf<CountryCode>().apply {
-            add(CountryCode(R.drawable.ic_flag_canada,"+1","Canada"))
-            add(CountryCode(R.drawable.ic_flag_afghanistan,"+93","Afghanistan"))
-            add(CountryCode(R.drawable.ic_flag_albania,"+355","Albania"))
-            add(CountryCode(R.drawable.ic_flag_algeria,"+213","Algeria"))
-            add(CountryCode(R.drawable.ic_flag_american_samoa,"+1684","American Samoa"))
-            add(CountryCode(R.drawable.ic_flag_andorra,"+256","Andorra"))
-            add(CountryCode(R.drawable.ic_flag_angola,"+12","Angola"))
-            add(CountryCode(R.drawable.ic_flag_anguilla,"+1345","Anguilla"))
-            add(CountryCode(R.drawable.ic_flag_albania,"+355","Albania"))
-            add(CountryCode(R.drawable.ic_flag_algeria,"+213","Algeria"))
-            add(CountryCode(R.drawable.ic_flag_american_samoa,"+1684","American Samoa"))
-            add(CountryCode(R.drawable.ic_flag_andorra,"+256","Andorra"))
-            add(CountryCode(R.drawable.ic_flag_angola,"+12","Angola"))
-            add(CountryCode(R.drawable.ic_flag_anguilla,"+1345","Anguilla"))
-            add(CountryCode(R.drawable.ic_flag_canada,"+1","Canada"))
-            add(CountryCode(R.drawable.ic_flag_afghanistan,"+93","Afghanistan"))
+            add(CountryCode(R.drawable.ic_flag_canada, "+1", "Canada"))
+            add(CountryCode(R.drawable.ic_flag_afghanistan, "+93", "Afghanistan"))
+            add(CountryCode(R.drawable.ic_flag_albania, "+355", "Albania"))
+            add(CountryCode(R.drawable.ic_flag_algeria, "+213", "Algeria"))
+            add(CountryCode(R.drawable.ic_flag_american_samoa, "+1684", "American Samoa"))
+            add(CountryCode(R.drawable.ic_flag_andorra, "+256", "Andorra"))
+            add(CountryCode(R.drawable.ic_flag_angola, "+12", "Angola"))
+            add(CountryCode(R.drawable.ic_flag_anguilla, "+1345", "Anguilla"))
+            add(CountryCode(R.drawable.ic_flag_albania, "+355", "Albania"))
+            add(CountryCode(R.drawable.ic_flag_algeria, "+213", "Algeria"))
+            add(CountryCode(R.drawable.ic_flag_american_samoa, "+1684", "American Samoa"))
+            add(CountryCode(R.drawable.ic_flag_andorra, "+256", "Andorra"))
+            add(CountryCode(R.drawable.ic_flag_angola, "+12", "Angola"))
+            add(CountryCode(R.drawable.ic_flag_anguilla, "+1345", "Anguilla"))
+            add(CountryCode(R.drawable.ic_flag_canada, "+1", "Canada"))
+            add(CountryCode(R.drawable.ic_flag_afghanistan, "+93", "Afghanistan"))
         }
 
-        binding.countryCodeLayout.setOnClickListener{
+        binding.countryCodeLayout.setOnClickListener {
             val fragment = DialogCountryCode()
             val bundle = Bundle()
             bundle.putParcelableArrayList("countryCodeList", ArrayList(countryCodeList))
@@ -105,7 +111,7 @@ class ForgotPasswordFragment:BaseFragment<AuthFragmentForgotPasswordBinding>() {
                     binding.countryFlag.setImageResource(countryCode.countryFlag)
                 }
             }
-            fragment.show(childFragmentManager,"DialogCountryCode")
+            fragment.show(childFragmentManager, "DialogCountryCode")
         }
     }
 }

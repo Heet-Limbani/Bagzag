@@ -27,5 +27,9 @@ class WelcomeScreenFragment:BaseFragment<AuthFragmentWelcomeScreenBinding>() {
             val bottomSheet = LoginBottomSheetFragment()
             bottomSheet.show(childFragmentManager, "LoginBottomSheetFragment")
         }
+
+        binding.signUpButton.setOnClickListener {
+            navigator.load(SignupFragment::class.java).replace(true,"SignupFragment")
+        }
     }
 }

@@ -82,8 +82,6 @@
         android:layout_height="@dimen/_50sdp"
         app:layout_constraintStart_toEndOf="@id/google"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintBottom_toTopOf="@id/orImage"
-        android:layout_marginBottom="@dimen/_20sdp"
         app:layout_constraintTop_toTopOf="@id/facebook"
         app:layout_constraintBottom_toBottomOf="@id/facebook"
         android:layout_marginHorizontal="@dimen/_10sdp"

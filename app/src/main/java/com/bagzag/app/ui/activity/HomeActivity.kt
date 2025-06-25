@@ -43,6 +43,4 @@ class HomeActivity : BaseActivity(), View.OnClickListener {
         }
         binding.dl.closeDrawer(Gravity.START)
     }
-
-
 }

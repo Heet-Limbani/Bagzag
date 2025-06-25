@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        style="@style/AppTheme.BaseGuidLine.Horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/searchLayout"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/_55sdp"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guidelineStart"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"-->
+<!--        app:layout_constraintTop_toTopOf="@id/guidelineTop"-->
+<!--        android:background="@drawable/drawable_input_background_grey_border">-->
+
+<!--        <image-->
+
+
+
+
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    <androidx.appcompat.widget.AppCompatEditText-->
+<!--        android:id="@+id/searchInput"-->
+<!--        style="@style/AppTheme.BaseEditText.Grey"-->
+<!--        android:drawableStart="@drawable/ic_search_small"-->
+<!--        android:drawableEnd="@drawable/ic_cross_black"-->
+<!--        android:drawablePadding="@dimen/_5sdp"-->
+<!--        android:hint="@string/search"-->
+<!--        android:inputType="textPassword"-->
+<!--        android:paddingStart="@dimen/_10sdp"-->
+<!--        android:paddingEnd="@dimen/_10sdp"-->
+<!--        android:textColorHint="@color/black"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guidelineStart"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/searchLayout" />-->
+
+
+    <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
+        android:id="@+id/searchInput"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_55sdp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop"
+        android:background="@drawable/drawable_input_background_grey_border"
+        android:drawableStart="@drawable/ic_search_small"
+        android:drawableEnd="@drawable/ic_cross_black"
+        android:padding="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_5sdp"
+        android:completionThreshold="1"
+    />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/recentSearchesHeading"
+        style="@style/AppTheme.BaseTextView.14BlackMedium"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@id/searchInput"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintHorizontal_bias="0"
+        android:text="@string/recent_searches"
+    />
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/recentSearchesChipGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@id/recentSearchesHeading"
+        android:layout_marginTop="@dimen/_10sdp">
+        
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/transparent"
+            app:chipCornerRadius="@dimen/_5sdp"
+            app:chipStrokeWidth="@dimen/_1sdp"
+            app:chipStrokeColor="@color/grey"
+            app:chipStartPadding="@dimen/_10sdp"
+            app:chipEndPadding="@dimen/_10sdp"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/inter_regular"
+            android:maxLines="1"
+        />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,7 +82,7 @@ class LoginFragment : BaseFragment<AuthFragmentLoginBinding>() {
             }
         }
         binding.buttonRegister.setOnClickListener {
-            navigator.load(SignupFragment::class.java).replace(true, "Test")
+            navigator.load(SignupFragmentOld::class.java).replace(true, "Test")
         }
 
     }
