@@ -88,5 +88,13 @@ class HomeFragment: BaseFragment<DashboardFragmentHomeBinding>(){
         binding.recyclerViewFindThings.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewFindThings.adapter = adapterProductCardFindThings
         adapterProductCardFindThings.setProductCardList(productCardList)
+
+        binding.search.setOnClickListener {
+            navigator.load(SearchFragment::class.java).replace(true, "SearchFragment")
+        }
+
+        binding.favorites.setOnClickListener {
+            navigator.load(FavoritesFragment::class.java).replace(true, "FavoritesFragment")
+        }
     }
 }

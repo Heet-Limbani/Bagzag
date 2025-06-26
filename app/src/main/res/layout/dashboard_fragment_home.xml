@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="@id/logo" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/wishlist"
+            android:id="@+id/favorites"
             style="@style/AppTheme.BaseImageView.Image24X24"
             android:layout_marginEnd="@dimen/_10sdp"
             android:src="@drawable/ic_wish_list"
@@ -63,7 +63,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:src="@drawable/ic_search_24"
             app:layout_constraintBottom_toBottomOf="@id/logo"
-            app:layout_constraintEnd_toStartOf="@id/wishlist"
+            app:layout_constraintEnd_toStartOf="@id/favorites"
             app:layout_constraintTop_toTopOf="@id/logo" />
 
         <androidx.appcompat.widget.AppCompatTextView

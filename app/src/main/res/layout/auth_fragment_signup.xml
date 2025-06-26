@@ -204,8 +204,8 @@
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/termsRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:button="@drawable/selector_radio_button_square"
             android:checked="true"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
