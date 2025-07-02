@@ -9,17 +9,18 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/productImage"
         android:layout_width="@dimen/_100sdp"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_90sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/ic_shirt"
+        android:src="@drawable/ic_men"
+        android:scaleType="centerCrop"
     />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/productName"
         style="@style/AppTheme.BaseTextView.14BlackMedium"
         app:layout_constraintStart_toEndOf="@id/productImage"
+        android:layout_marginStart="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ratingIcon"

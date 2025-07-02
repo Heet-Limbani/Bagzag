@@ -96,5 +96,9 @@ class HomeFragment: BaseFragment<DashboardFragmentHomeBinding>(){
         binding.favorites.setOnClickListener {
             navigator.load(FavoritesFragment::class.java).replace(true, "FavoritesFragment")
         }
+
+        binding.categoriesViewMore.setOnClickListener{
+            navigator.load(BrowseCategoriesFragment::class.java).replace(true, "BrowseCategoriesFragment")
+        }
     }
 }

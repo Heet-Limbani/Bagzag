@@ -16,7 +16,7 @@ class AdapterStore : RecyclerView.Adapter<AdapterStore.StoreViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class StoreViewHolder(val rootView: ViewStoreCardBinding) :
+    inner class StoreViewHolder(private val rootView: ViewStoreCardBinding) :
         RecyclerView.ViewHolder(rootView.root) {
         fun setStoreCard(storeCard: StoreCard) {
             rootView.storeImage.setImageResource(storeCard.storeImage)

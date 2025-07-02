@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        style="@style/AppTheme.BaseGuidLine.Horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTopCard"
+        style="@style/AppTheme.BaseGuidLine.Horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/categoriesHeadingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/grey_50"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineTopCard"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStartSub"
+            style="@style/AppTheme.BaseGuidLine.Vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEndSub"
+            style="@style/AppTheme.BaseGuidLine.Vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTopSub"
+            style="@style/AppTheme.BaseGuidLine.Horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottomSub"
+            style="@style/AppTheme.BaseGuidLine.Horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/guidelineStartSub"
+            app:layout_constraintTop_toTopOf="@id/guidelineTopSub" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryName"
+            style="@style/AppTheme.BaseTextView.30BlackSemiBold"
+            android:text="@string/men"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineBottomSub"
+            app:layout_constraintEnd_toStartOf="@id/categoryImage"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/categoryImage"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_men"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEndSub"
+            app:layout_constraintTop_toTopOf="@id/guidelineTopSub"
+            app:layout_constraintVertical_bias="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesDetailsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/categoriesHeadingContainer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

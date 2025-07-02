@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        style="@style/AppTheme.BaseGuidLine.Horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.95" />    
+
+    <LinearLayout
+        android:id="@+id/leftContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/heading"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="@id/heading">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintHorizontal_weight="1" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/heading"
+        style="@style/AppTheme.BaseTextView.20BlackMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:padding="0dp"
+        android:text="@string/browse_categories"
+        app:layout_constraintEnd_toStartOf="@id/rightContainer"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@id/leftContainer"
+        app:layout_constraintTop_toBottomOf="@id/guidelineTop" />
+
+    <LinearLayout
+        android:id="@+id/rightContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/heading"
+        app:layout_constraintTop_toTopOf="@id/heading">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/filter"
+            style="@style/AppTheme.BaseImageView.Image24X24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_filter" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/search"
+            style="@style/AppTheme.BaseImageView.Image24X24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_search" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        android:layout_marginTop="@dimen/_10sdp"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

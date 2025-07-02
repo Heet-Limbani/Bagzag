@@ -30,3 +30,6 @@ class FavoritesFragment : BaseFragment<DashboardFragmentFavoritesBinding>() {
         binding.viewPagerFavorites.isUserInputEnabled = false
     }
 }
+
+
+

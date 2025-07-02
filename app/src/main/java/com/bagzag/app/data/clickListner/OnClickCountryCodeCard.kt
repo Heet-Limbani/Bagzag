@@ -5,6 +5,6 @@ import com.bagzag.app.data.pojo.CountryCode
 
 interface OnClickCountryCodeCard {
 
-    fun onClick(countryCode: CountryCode, position:Int, view: View)
+    fun onClick(countryCode: CountryCode, position: Int, view: View)
 
 }
