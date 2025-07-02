@@ -15,6 +15,7 @@ ssp = "1.1.0"
 sdp = "1.1.0"
 glide = "4.14.1"
 glideCompiler = "4.13.2"
+activity = "1.8.0"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -59,3 +60,4 @@ sdp = { module = "com.intuit.sdp:sdp-android", version.ref = "sdp" }
 # Glide
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glideCompiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideCompiler" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }

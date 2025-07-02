@@ -16,7 +16,9 @@ import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.adapter.AdapterCategoriesDashboard
 import com.bagzag.app.ui.dashboard.adapter.AdapterProductCard
 import com.bagzag.app.ui.dashboard.adapter.AdapterProductCardHorizontal
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment: BaseFragment<DashboardFragmentHomeBinding>(){
     override fun createViewBinding(
         inflater: LayoutInflater,

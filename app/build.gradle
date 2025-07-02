@@ -70,6 +70,10 @@ dependencies {
 
     // Hilt
     implementation libs.hiltAndroid
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.activity
+    implementation deps.constraintlayout
     kapt libs.hiltCompiler
 
     // Lifecycle components

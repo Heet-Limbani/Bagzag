@@ -48,10 +48,10 @@
 <!--        app:layout_constraintTop_toBottomOf="@id/searchLayout" />-->
 
 
-    <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
+    <com.google.android.material.textfield.MaterialAutoCompleteTextView
         android:id="@+id/searchInput"
         android:layout_width="0dp"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_height="@dimen/_50sdp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintTop_toTopOf="@id/guidelineTop"
@@ -60,6 +60,7 @@
         android:drawableEnd="@drawable/ic_cross_black"
         android:padding="@dimen/_10sdp"
         android:drawablePadding="@dimen/_5sdp"
+        android:textSize="@dimen/_16ssp"
         android:completionThreshold="1"
     />
 
@@ -83,22 +84,21 @@
         app:layout_constraintTop_toBottomOf="@id/recentSearchesHeading"
         android:layout_marginTop="@dimen/_10sdp">
 
-<!--        -->
-<!--        <com.google.android.material.chip.Chip-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="@dimen/_40sdp"-->
-<!--            app:checkedIconVisible="false"-->
-<!--            app:chipBackgroundColor="@color/transparent"-->
-<!--            app:chipCornerRadius="@dimen/_5sdp"-->
-<!--            app:chipStrokeWidth="@dimen/_1sdp"-->
-<!--            app:chipStrokeColor="@color/grey"-->
-<!--            app:chipStartPadding="@dimen/_10sdp"-->
-<!--            app:chipEndPadding="@dimen/_10sdp"-->
-<!--            android:textColor="@color/grey"-->
-<!--            android:textSize="@dimen/_16ssp"-->
-<!--            android:fontFamily="@font/inter_regular"-->
-<!--            android:maxLines="1"-->
-<!--        />-->
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40sdp"
+            app:checkedIconVisible="false"
+            app:chipBackgroundColor="@color/transparent"
+            app:chipCornerRadius="@dimen/_5sdp"
+            app:chipStrokeWidth="@dimen/_1sdp"
+            app:chipStrokeColor="@color/grey"
+            app:chipStartPadding="@dimen/_10sdp"
+            app:chipEndPadding="@dimen/_10sdp"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/_16ssp"
+            android:fontFamily="@font/inter_regular"
+            android:maxLines="1"
+        />
 
     </com.google.android.material.chip.ChipGroup>
 

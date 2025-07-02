@@ -70,7 +70,7 @@ abstract class BaseActivity : AppCompatActivity(), HasToolbar, Navigator {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 
             // Adds padding to the bottom (for buttons)
-            view.updatePadding(bottom = systemBars.bottom)
+//            view.updatePadding(bottom = systemBars.bottom)
 
             insets
         }

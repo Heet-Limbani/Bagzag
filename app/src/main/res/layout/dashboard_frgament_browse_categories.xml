@@ -21,11 +21,10 @@
 
     <LinearLayout
         android:id="@+id/leftContainer"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/_60sdp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@id/heading"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toTopOf="@id/heading">
 
@@ -55,12 +54,11 @@
 
     <LinearLayout
         android:id="@+id/rightContainer"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/_60sdp"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/heading"
         app:layout_constraintTop_toTopOf="@id/heading">
 

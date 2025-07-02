@@ -1,6 +1,5 @@
 package com.bagzag.app.ui.auth.fragment
 
-import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import androidx.core.content.ContextCompat
 import com.bagzag.app.R
 import com.bagzag.app.databinding.AuthFragmentPhoneVerificationBinding
 import com.bagzag.app.ui.activity.DashboardActivity
-import com.bagzag.app.ui.activity.IsolatedActivity
+import com.bagzag.app.ui.activity.DashboardActivityTwo
 import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.fragment.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint

@@ -10,7 +10,9 @@ import com.bagzag.app.data.pojo.Categories
 import com.bagzag.app.databinding.DashboardFrgamentBrowseCategoriesBinding
 import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.adapter.AdapterBrowseCategories
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BrowseCategoriesFragment:BaseFragment<DashboardFrgamentBrowseCategoriesBinding>() {
     override fun createViewBinding(
         inflater: LayoutInflater,

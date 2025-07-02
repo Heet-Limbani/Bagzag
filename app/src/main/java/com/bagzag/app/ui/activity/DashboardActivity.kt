@@ -2,6 +2,10 @@ package com.bagzag.app.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.bagzag.app.R
 import com.bagzag.app.databinding.DashboardAcitivtyBinding
 import com.bagzag.app.ui.base.BaseActivity
@@ -33,5 +37,4 @@ class DashboardActivity : BaseActivity() {
                 .replace(false)
         }
     }
-
 }
