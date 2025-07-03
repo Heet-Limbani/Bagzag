@@ -9,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.bagzag.app.R
 import com.bagzag.app.databinding.AuthFragmentPhoneVerificationBinding
 import com.bagzag.app.ui.activity.DashboardActivity
-import com.bagzag.app.ui.activity.DashboardActivityTwo
 import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.fragment.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +24,11 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
     }
 
     override fun bindData() {
+
+        val mobileNumber = arguments?.getString("mobileNumber")
+
+        binding.mobileNumber.text = mobileNumber
+
         val otpFields = listOf<EditText>(
             binding.otpDigitOne,
             binding.otpDigitTwo,
@@ -42,9 +46,14 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
                     HomeFragment::class.java
                 ).byFinishingCurrent().start()
             } else if(nextPage == "ResetPasswordFragment") {
-                navigator.load(ResetPasswordFragment::class.java).clearHistory(null).replace(false,"ResetPasswordFragment")
+                navigator.load(ResetPasswordFragment::class.java).replace(true,"ResetPasswordFragment")
             }
         }
+
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
     }
 
     private fun setupOtpInputs(otpFields: List<EditText>) {
@@ -60,11 +69,11 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    if (!s.isNullOrEmpty()) {
-                        otpFields[i].background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected_grey)
-                    } else {
-                        otpFields[i].background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected)
-                    }
+//                    if (!s.isNullOrEmpty()) {
+//                        otpFields[i].background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected_grey)
+//                    } else {
+//                        otpFields[i].background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected)
+//                    }
                 }
             })
 

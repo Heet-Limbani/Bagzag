@@ -17,7 +17,7 @@ class ForgotPasswordFragment : BaseFragment<AuthFragmentForgotPasswordBinding>()
 
     var selectedPosition = 0
     var forgotType = ForgotType.EMAIL
-
+    var selectedCountryCode = "+1"
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -71,9 +71,25 @@ class ForgotPasswordFragment : BaseFragment<AuthFragmentForgotPasswordBinding>()
                 }
 
                 ForgotType.MOBILE -> {
+
+                    val cleanedNumber = binding.mobileNumber.text?.filter { it.isDigit() }
+
+                    var mobileNumber = ""
+
+                    if(cleanedNumber != null){
+
+                        val formattedNumber = when (cleanedNumber.length) {
+                            10 -> "${cleanedNumber.substring(0, 3)}-${cleanedNumber.substring(3, 6)}-${cleanedNumber.substring(6)}"
+                            else -> cleanedNumber // fallback if length doesn't match expected
+                        }
+
+                        mobileNumber = "$selectedCountryCode-$formattedNumber"
+                    }
+
                     val bundle = Bundle()
+                    bundle.putString("mobileNumber", mobileNumber)
                     bundle.putString("nextPage", "ResetPasswordFragment")
-                    navigator.load(PhoneVerificationFragment::class.java)
+                    navigator.load(PhoneVerificationFragment::class.java).setBundle(bundle)
                         .replace(true, "PhoneVerificationFragment")
                 }
             }
@@ -108,10 +124,14 @@ class ForgotPasswordFragment : BaseFragment<AuthFragmentForgotPasswordBinding>()
                 override fun onClick(countryCode: CountryCode, position: Int, view: View) {
                     selectedPosition = position
                     binding.countryCode.text = countryCode.countryCode
+                    selectedCountryCode = countryCode.countryCode
                     binding.countryFlag.setImageResource(countryCode.countryFlag)
                 }
             }
             fragment.show(childFragmentManager, "DialogCountryCode")
+        }
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 }
@@ -119,3 +139,4 @@ class ForgotPasswordFragment : BaseFragment<AuthFragmentForgotPasswordBinding>()
 enum class ForgotType {
     EMAIL, MOBILE
 }
+

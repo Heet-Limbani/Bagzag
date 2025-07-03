@@ -6,7 +6,9 @@ import com.bagzag.app.databinding.AuthFragmentWelcomeScreenBinding
 import com.bagzag.app.ui.auth.adapter.AdapterWelcomeScreen
 import com.bagzag.app.ui.base.BaseFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WelcomeScreenFragment:BaseFragment<AuthFragmentWelcomeScreenBinding>() {
     override fun createViewBinding(
         inflater: LayoutInflater,

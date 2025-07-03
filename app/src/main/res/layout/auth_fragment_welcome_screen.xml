@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/AppTheme.BaseScrollView">
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -10,7 +13,7 @@
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineTop"
             style="@style/AppTheme.BaseGuidLine.Horizontal"
-            app:layout_constraintGuide_percent="0.03"
+            app:layout_constraintGuide_percent="0.02"
         />
 
         <androidx.constraintlayout.widget.Guideline

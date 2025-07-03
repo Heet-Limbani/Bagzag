@@ -16,7 +16,9 @@ import com.bagzag.app.data.clickListner.OnClickCountryCodeCard
 import com.bagzag.app.data.pojo.CountryCode
 import com.bagzag.app.databinding.AuthFragmentSignupBinding
 import com.bagzag.app.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
     var selectedPosition = 0
     override fun createViewBinding(
