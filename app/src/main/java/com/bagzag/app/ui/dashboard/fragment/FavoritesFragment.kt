@@ -28,6 +28,10 @@ class FavoritesFragment : BaseFragment<DashboardFragmentFavoritesBinding>() {
         }.attach()
 
         binding.viewPagerFavorites.isUserInputEnabled = false
+
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
 

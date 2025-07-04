@@ -67,16 +67,16 @@ abstract class BaseActivity : AppCompatActivity(), HasToolbar, Navigator {
         val rootView = findViewById<ViewGroup>(android.R.id.content).getChildAt(0)
 
         ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//
-//            // Adds padding to the bottom (for buttons)
-//            view.updatePadding(bottom = systemBars.bottom)
-
-            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 
-            val bottomInset = maxOf(imeInsets.bottom, systemBars.bottom)
-            view.updatePadding(bottom = bottomInset)
+            // Adds padding to the bottom (for buttons)
+//            view.updatePadding(bottom = systemBars.bottom)
+
+//            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//
+//            val bottomInset = maxOf(imeInsets.bottom, systemBars.bottom)
+//            view.updatePadding(bottom = bottomInset)
 
             insets
         }

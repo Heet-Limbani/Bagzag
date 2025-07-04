@@ -58,11 +58,12 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/collectionTitle"
-        app:layout_constraintStart_toStartOf="@id/imageContainer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageContainer"
         style="@style/AppTheme.BaseTextView.18PinkBold"
         android:layout_marginTop="@dimen/_30sdp"
         android:text="@string/trendy_collection"
+        android:layout_marginStart="@dimen/_10sdp"
     />
 
     <androidx.appcompat.widget.AppCompatTextView

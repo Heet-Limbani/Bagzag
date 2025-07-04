@@ -47,6 +47,9 @@ class BrowseCategoriesFragment:BaseFragment<DashboardFrgamentBrowseCategoriesBin
                 navigator.load(CategoriesDetailsFragment::class.java).setBundle(bundle).replace(true,"CategoriesDetailsFragment")
             }
         })
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
 

@@ -16,6 +16,7 @@ import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.adapter.AdapterCategoriesDashboard
 import com.bagzag.app.ui.dashboard.adapter.AdapterProductCard
 import com.bagzag.app.ui.dashboard.adapter.AdapterProductCardHorizontal
+import com.bagzag.app.ui.dashboard.adapter.AdapterProductCardWrapContent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,10 +70,10 @@ class HomeFragment: BaseFragment<DashboardFragmentHomeBinding>(){
         binding.recyclerViewProductBestseller.adapter = adapterProductCard
         adapterProductCard.setProductCardList(productCardList)
 
-        val adapterRecentProduct = AdapterProductCard()
+        val adapterRecentProduct = AdapterProductCardWrapContent()
         binding.recyclerViewRecentlyViewed.layoutManager = GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL,false)
         binding.recyclerViewRecentlyViewed.adapter = adapterRecentProduct
-        adapterRecentProduct.setProductCardList(productCardList)
+        adapterRecentProduct.setProductList(productCardList)
 
         val productCardListHorizontal = mutableListOf<ProductCard>().apply {
             add(ProductCard(R.drawable.ic_shirt,"Loose Textured T-Shirt",null,false,4.5,256,"Free Shipping",159.99,119.99))

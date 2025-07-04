@@ -43,9 +43,10 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:fillViewport="true"
         android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/heading"
@@ -251,7 +252,7 @@
                 app:layout_constraintTop_toBottomOf="@id/termsText"
                 app:layout_constraintVertical_bias="0"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_50sdp"/>
+                android:layout_marginBottom="@dimen/_20sdp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

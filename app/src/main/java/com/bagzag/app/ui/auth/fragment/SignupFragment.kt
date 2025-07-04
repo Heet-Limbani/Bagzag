@@ -140,5 +140,8 @@ class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
             bundle.putString("nextPage","DashboardActivity")
             navigator.load(PhoneVerificationFragment::class.java).setBundle(bundle).replace(true,"PhoneVerificationFragment")
         }
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

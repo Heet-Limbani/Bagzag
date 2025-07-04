@@ -51,5 +51,9 @@ class CategoriesDetailsFragment : BaseFragment<DashboardFragmentCategoriesDetail
         binding.categoriesDetailsRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.categoriesDetailsRecyclerView.adapter = adapter
         adapter.setCategoriesDetailsList(categoriesDetailsList)
+
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

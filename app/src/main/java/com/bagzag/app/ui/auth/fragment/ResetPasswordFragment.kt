@@ -27,5 +27,9 @@ class ResetPasswordFragment:BaseFragment<AuthFragmentResetPasswordBinding>() {
                 HomeFragment::class.java
             ).byFinishingCurrent().start()
         }
+
+        binding.back.setOnClickListener{
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

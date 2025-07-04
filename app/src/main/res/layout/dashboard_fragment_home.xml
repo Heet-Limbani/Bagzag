@@ -68,9 +68,10 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10sdp"
         android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"
         android:scrollbars="none">
 
@@ -284,7 +285,9 @@
                 android:layout_marginBottom="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEndScrollView"
                 app:layout_constraintStart_toStartOf="@id/guidelineStartScrollView"
-                app:layout_constraintTop_toBottomOf="@id/findThingsHeading" />
+                app:layout_constraintTop_toBottomOf="@id/findThingsHeading"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
