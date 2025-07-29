@@ -28,7 +28,7 @@ class BrowseCategoriesFragment:BaseFragment<DashboardFrgamentBrowseCategoriesBin
             add(Categories(R.drawable.ic_women,"Women"))
             add(Categories(R.drawable.ic_kids,"Kids"))
             add(Categories(R.drawable.ic_beauty,"Beauty"))
-            add(Categories(R.drawable.ic_home_living,"Home&Living"))
+            add(Categories(R.drawable.ic_home_living,"Home & Living"))
             add(Categories(R.drawable.ic_gedgets,"Gedgets"))
             add(Categories(R.drawable.ic_toys_baby,"Toy & Baby"))
             add(Categories(R.drawable.ic_sports,"Sports"))

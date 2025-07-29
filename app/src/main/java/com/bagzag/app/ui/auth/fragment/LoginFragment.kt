@@ -71,7 +71,7 @@ class LoginFragment : BaseFragment<AuthFragmentLoginBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        observeLiveData()
+//        observeLiveData()
     }
 
     override fun bindData() {
@@ -102,15 +102,15 @@ class LoginFragment : BaseFragment<AuthFragmentLoginBinding>() {
             deviceId = "123",
             deviceType = "A"
         )
-        loginViewModel.login(request)
+//        loginViewModel.login(request)
     }
 
     /**
      * LiveData observers
      */
-    private fun observeLiveData() {
-        loginViewModel.loginLiveData.observe(this, { responseBody ->
-            navigator.loadActivity(HomeActivity::class.java).byFinishingCurrent().start()
-        })
-    }
+//    private fun observeLiveData() {
+//        loginViewModel.loginLiveData.observe(this, { responseBody ->
+//            navigator.loadActivity(HomeActivity::class.java).byFinishingCurrent().start()
+//        })
+//    }
 }

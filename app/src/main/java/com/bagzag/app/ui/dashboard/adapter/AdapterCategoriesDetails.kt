@@ -1,12 +1,20 @@
 package com.bagzag.app.ui.dashboard.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bagzag.app.data.clickListner.OnClickSubCategories
 import com.bagzag.app.databinding.ViewCategoriesDetailsBinding
 
 class AdapterCategoriesDetails :
     RecyclerView.Adapter<AdapterCategoriesDetails.CategoriesDetailsViewHolder>() {
+
+    var onClickSubCategories: OnClickSubCategories? = null
+
+    fun setObjectOnClickSubCategories(onClickSubCategories: OnClickSubCategories) {
+        this.onClickSubCategories = onClickSubCategories
+    }
 
     val categoriesDetailsList = mutableListOf<String>()
 
@@ -17,9 +25,22 @@ class AdapterCategoriesDetails :
     }
 
     inner class CategoriesDetailsViewHolder(val rootView: ViewCategoriesDetailsBinding) :
-        RecyclerView.ViewHolder(rootView.root) {
+        RecyclerView.ViewHolder(rootView.root), View.OnClickListener {
+
+        init {
+            rootView.subCategory.setOnClickListener(this)
+        }
+
         fun setData(subCategoryName: String) {
             rootView.subCategoryName.text = subCategoryName
+        }
+
+        override fun onClick(view: View) {
+            onClickSubCategories?.onClick(
+                categoriesDetailsList[layoutPosition],
+                layoutPosition,
+                view
+            )
         }
     }
 
@@ -32,7 +53,7 @@ class AdapterCategoriesDetails :
             )
         )
     }
-    
+
     override fun getItemCount(): Int {
         return categoriesDetailsList.size
     }
@@ -41,4 +62,5 @@ class AdapterCategoriesDetails :
         holder.setData(categoriesDetailsList[position])
     }
 }
+
 

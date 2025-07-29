@@ -1,10 +1,13 @@
 package com.bagzag.app.data.service
 
 import com.bagzag.app.data.URLFactory
+import com.bagzag.app.data.pojo.Response.SignUpResponse
 import com.bagzag.app.data.pojo.ResponseBody
 import com.bagzag.app.data.pojo.User
 import com.bagzag.app.data.pojo.request.LoginRequest
+import com.bagzag.app.data.pojo.request.SignupRequest
 import retrofit2.http.Body
+import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface AuthenticationService {
@@ -12,7 +15,8 @@ interface AuthenticationService {
     /**
      * API calling url and method
      */
-    @POST(URLFactory.Method.LOGIN)
-    suspend fun login(@Body request: LoginRequest): ResponseBody<User>
+    @POST(URLFactory.Method.SIGNUP)
+    @Headers(URLFactory.Method.HEADER)
+    suspend fun signup(@Body request: SignupRequest): ResponseBody<SignUpResponse>
 
 }

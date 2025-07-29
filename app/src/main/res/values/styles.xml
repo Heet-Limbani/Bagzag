@@ -237,7 +237,7 @@
 
     <style name="AppTheme.BaseImageView.HorizontalDividerGrey">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/_5sdp</item>
+        <item name="android:layout_height">@dimen/_2sdp</item>
         <item name="android:src">@drawable/drawable_horizontal_divider_grey</item>
     </style>
 

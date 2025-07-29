@@ -26,14 +26,13 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@id/heading"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toTopOf="@id/heading">
+        app:layout_constraintTop_toTopOf="@id/guidelineTop">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/back"
             android:layout_width="@dimen/_17sdp"
             android:layout_height="@dimen/_17sdp"
-            android:src="@drawable/ic_arrow_left"
-            app:layout_constraintHorizontal_weight="1" />
+            android:src="@drawable/ic_arrow_left"/>
 
     </LinearLayout>
 
@@ -60,7 +59,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toEndOf="@id/heading"
-        app:layout_constraintTop_toTopOf="@id/heading">
+        app:layout_constraintTop_toTopOf="@id/guidelineTop">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/filter"

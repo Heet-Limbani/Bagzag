@@ -59,31 +59,29 @@
         android:id="@+id/tabLayoutFavorites"
         android:layout_width="0dp"
         android:layout_height="@dimen/_50sdp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dividerTop"
-        app:tabTextColor="@color/grey"
         app:tabIndicatorColor="@color/black"
         app:tabSelectedTextColor="@color/black"
-        android:background="@color/transparent"
         app:tabTextAppearance="@style/TabText"
-    />
+        app:tabTextColor="@color/grey" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/dividerBottom"
         style="@style/AppTheme.BaseImageView.HorizontalDividerGrey"
-        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/tabLayoutFavorites"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/tabLayoutFavorites" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerFavorites"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintTop_toBottomOf="@id/dividerBottom"
         app:layout_constraintBottom_toBottomOf="parent"
-    />
-    
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/dividerBottom" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

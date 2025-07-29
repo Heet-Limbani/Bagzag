@@ -42,7 +42,7 @@ object NetModule {
                 addInterceptor(headerInterceptor)
                if (BuildConfig.DEBUG)
                     addInterceptor(httpLoggingInterceptor)
-                addInterceptor(aesInterceptor)
+//                addInterceptor(aesInterceptor)
                 addNetworkInterceptor(networkInterceptor)
                 connectTimeout(1, TimeUnit.MINUTES)
                 writeTimeout(1, TimeUnit.MINUTES)
@@ -65,9 +65,10 @@ object NetModule {
     @Named(DiConstants.HEADER)
     internal fun provideHeaderInterceptor(session: Session): Interceptor {
         return Interceptor { chain ->
-            val build = chain.request().newBuilder().addHeader(Session.API_KEY, session.apiKey)
-                .addHeader(Session.USER_SESSION, session.userSession)
-                .header(Session.LANGUAGE, session.language).build()
+//            val build = chain.request().newBuilder().addHeader(Session.API_KEY, session.apiKey)
+//                .addHeader(Session.USER_SESSION, session.userSession)
+//                .header(Session.LANGUAGE, session.language).build()
+            val build = chain.request().newBuilder().build()
             chain.proceed(build)
         }
     }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background_round_white_two">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        style="@style/AppTheme.BaseGuidLine.Vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/recentProductHeading"
+        style="@style/AppTheme.BaseTextView.18BlackMedium"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/recent_products"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/recentProductChipGroupView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/recentProductHeading">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/recentProductChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:singleLine="true"
+            app:singleSelection="true" />
+
+    </HorizontalScrollView>
+
+    <!--        <com.google.android.material.chip.Chip-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="@dimen/_35sdp"-->
+    <!--            android:checkable="true"-->
+    <!--            android:clickable="true"-->
+    <!--            android:focusable="true"-->
+    <!--            android:fontFamily="@font/inter_regular"-->
+    <!--            android:maxLines="1"-->
+    <!--            android:text="@string/test"-->
+    <!--            android:textColor="@color/sort_chip_selection_color_black_grey"-->
+    <!--            android:textSize="@dimen/_16ssp"-->
+    <!--            app:checkedIconVisible="false"-->
+    <!--            app:chipBackgroundColor="@color/transparent"-->
+    <!--            app:chipCornerRadius="@dimen/_2sdp"-->
+    <!--            app:chipEndPadding="@dimen/_10sdp"-->
+    <!--            app:chipStartPadding="@dimen/_10sdp"-->
+    <!--            app:chipStrokeColor="@color/sort_chip_selection_color_black_grey"-->
+    <!--            app:chipStrokeWidth="@dimen/_1sdp" />-->
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ratingHeading"
+        style="@style/AppTheme.BaseTextView.18BlackMedium"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/rating"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/recentProductChipGroupView" />
+
+    <HorizontalScrollView
+        android:id="@+id/ratingChipGroupView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/ratingHeading">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/ratingChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:singleLine="true"
+            app:singleSelection="true" />
+
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/priceHeading"
+        style="@style/AppTheme.BaseTextView.18BlackMedium"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/price"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/ratingChipGroupView" />
+
+    <HorizontalScrollView
+        android:id="@+id/priceChipGroupView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/priceHeading">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/priceChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:singleLine="true"
+            app:singleSelection="true" />
+
+    </HorizontalScrollView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/offerHeading"
+        style="@style/AppTheme.BaseTextView.18BlackMedium"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/offers"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/priceChipGroupView" />
+
+    <HorizontalScrollView
+        android:id="@+id/offerChipGroupView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/offerHeading">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/offerChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:orientation="horizontal"
+            app:singleLine="true"
+            app:singleSelection="true" />
+
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

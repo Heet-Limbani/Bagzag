@@ -104,8 +104,6 @@ constructor(private val context: Context) {
                 e.type = ApplicationException.Type.VALIDATION
                 throw e
             }
-
-
         }
         return true
     }

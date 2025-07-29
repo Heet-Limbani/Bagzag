@@ -14,7 +14,7 @@ import com.bagzag.app.ui.dashboard.fragment.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBinding>() {
+class PhoneVerificationFragment : BaseFragment<AuthFragmentPhoneVerificationBinding>() {
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,17 +40,18 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
 
         binding.verifyButton.setOnClickListener {
             val nextPage = arguments?.getString("nextPage") ?: "DashboardActivity"
-            if(nextPage == "DashboardActivity") {
+            if (nextPage == "DashboardActivity") {
                 navigator.loadActivity(
                     DashboardActivity::class.java,
                     HomeFragment::class.java
                 ).byFinishingCurrent().start()
-            } else if(nextPage == "ResetPasswordFragment") {
-                navigator.load(ResetPasswordFragment::class.java).replace(true,"ResetPasswordFragment")
+            } else if (nextPage == "ResetPasswordFragment") {
+                navigator.load(ResetPasswordFragment::class.java)
+                    .replace(true, "ResetPasswordFragment")
             }
         }
 
-        binding.back.setOnClickListener{
+        binding.back.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
@@ -60,7 +61,13 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
 
         for (i in otpFields.indices) {
             otpFields[i].addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s?.length == 1 && i < otpFields.size - 1) {
@@ -90,12 +97,21 @@ class PhoneVerificationFragment:BaseFragment<AuthFragmentPhoneVerificationBindin
             otpFields[i].setOnFocusChangeListener { view, hasFocus ->
                 val editText = view as EditText
                 if (hasFocus) {
-                    view.background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected)
+                    view.background = ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.drawable_otp_input_selected
+                    )
                 } else {
                     if (editText.text.isNotEmpty()) {
-                        view.background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_selected_grey)
+                        view.background = ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.drawable_otp_input_selected_grey
+                        )
                     } else {
-                        view.background = ContextCompat.getDrawable(requireContext(), R.drawable.drawable_otp_input_unselected)
+                        view.background = ContextCompat.getDrawable(
+                            requireContext(),
+                            R.drawable.drawable_otp_input_unselected
+                        )
                     }
                 }
             }

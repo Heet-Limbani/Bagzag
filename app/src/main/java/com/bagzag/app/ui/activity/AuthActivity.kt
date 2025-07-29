@@ -40,7 +40,7 @@ class AuthActivity : BaseActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        load(LoginFragment::class.java).replace(false)
+//        load(LoginFragment::class.java).replace(false)
     }
 
 }

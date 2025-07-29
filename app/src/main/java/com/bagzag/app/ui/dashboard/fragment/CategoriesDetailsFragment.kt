@@ -1,14 +1,19 @@
 package com.bagzag.app.ui.dashboard.fragment
 
 import android.os.Build
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bagzag.app.data.clickListner.OnClickSubCategories
 import com.bagzag.app.data.pojo.Categories
 import com.bagzag.app.databinding.DashboardFragmentCategoriesDetailsBinding
 import com.bagzag.app.ui.base.BaseFragment
 import com.bagzag.app.ui.dashboard.adapter.AdapterCategoriesDetails
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CategoriesDetailsFragment : BaseFragment<DashboardFragmentCategoriesDetailsBinding>() {
     override fun createViewBinding(
         inflater: LayoutInflater,
@@ -55,5 +60,13 @@ class CategoriesDetailsFragment : BaseFragment<DashboardFragmentCategoriesDetail
         binding.back.setOnClickListener{
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+
+        adapter.setObjectOnClickSubCategories(object : OnClickSubCategories{
+            override fun onClick(subCategoryName: String, position: Int, view: View) {
+                val bundle = Bundle()
+                bundle.putString("subCategoryName", subCategoryName)
+                navigator.load(SubCategoriesFragment::class.java).setBundle(bundle).replace(true,"SubCategoriesFragment")
+            }
+        })
     }
 }

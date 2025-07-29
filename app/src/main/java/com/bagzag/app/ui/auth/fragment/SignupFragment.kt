@@ -7,20 +7,87 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.style.ClickableSpan
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.bagzag.app.R
+import com.bagzag.app.core.Session
 import com.bagzag.app.data.clickListner.OnClickCountryCodeCard
 import com.bagzag.app.data.pojo.CountryCode
+import com.bagzag.app.data.pojo.request.SignupRequest
 import com.bagzag.app.databinding.AuthFragmentSignupBinding
+import com.bagzag.app.exception.ApplicationException
+import com.bagzag.app.ui.activity.DashboardActivity
+import com.bagzag.app.ui.auth.viewmodel.LoginViewModel
 import com.bagzag.app.ui.base.BaseFragment
+import com.bagzag.app.utils.Validator
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.UUID
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
     var selectedPosition = 0
+    var selectedCountryCode = "+1"
+    private val loginViewModel: LoginViewModel by viewModels()
+    private var deviceType = "A"
+    private var loginType = "S"
+
+    @Inject
+    lateinit var validator: Validator
+
+    @Inject
+    lateinit var session: Session
+
+    private val isValid: Boolean
+        get() {
+            return try {
+                validator.submit(binding.firstNameInput)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_first_name))
+                    .checkMinDigits(3).errorMessage(getString(R.string.validation_valid_first_name))
+                    .check()
+
+                validator.submit(binding.lastNameInput)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_last_name))
+                    .checkMinDigits(3).errorMessage(getString(R.string.validation_valid_last_name))
+                    .check()
+
+                validator.submit(binding.emailInput)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_email))
+                    .checkValidEmail().errorMessage(getString(R.string.validation_valid_email))
+                    .check()
+
+                validator.submit(binding.mobileNumber)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_mobile_number))
+                    .checkMinDigits(10).errorMessage(getString(R.string.validation_valid_mobile_number))
+                    .checkMaxDigits(10).errorMessage(getString(R.string.validation_valid_mobile_number))
+                    .check()
+
+                validator.submit(binding.passwordInput)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_password))
+                    .check()
+
+                validator.submit(binding.confirmPasswordInput)
+                    .checkEmpty().errorMessage(getString(R.string.validation_enter_confirm_password))
+                    .matchString(binding.passwordInput.text.toString()).errorMessage(getString(R.string.validation_password_mismatch))
+                    .check()
+
+                if (!binding.termsRadio.isChecked) {
+//                    binding.termsRadio.error = "Please accept the terms and conditions"
+                    throw ApplicationException("Please accept the terms and conditions")
+                }
+
+                true
+            } catch (e: ApplicationException) {
+                showMessage(e)
+                false
+            }
+        }
+
     override fun createViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +96,12 @@ class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
         return AuthFragmentSignupBinding.inflate(inflater, container, attachToRoot)
     }
 
-    override fun bindData() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        observeLiveData()
+    }
+
+override fun bindData() {
         val countryCodeList = mutableListOf<CountryCode>().apply {
             add(CountryCode(R.drawable.ic_flag_canada, "+1", "Canada"))
             add(CountryCode(R.drawable.ic_flag_afghanistan, "+93", "Afghanistan"))
@@ -58,6 +130,7 @@ class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
             fragment.onClickCountryCodeCard = object : OnClickCountryCodeCard {
                 override fun onClick(countryCode: CountryCode, position: Int, view: View) {
                     selectedPosition = position
+                    selectedCountryCode = countryCode.countryCode
                     binding.countryCode.text = countryCode.countryCode
                     binding.countryFlag.setImageResource(countryCode.countryFlag)
                 }
@@ -136,12 +209,76 @@ class SignupFragment : BaseFragment<AuthFragmentSignupBinding>() {
         binding.termsText.text = spannableString
 
         binding.signupButton.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("nextPage","DashboardActivity")
-            navigator.load(PhoneVerificationFragment::class.java).setBundle(bundle).replace(true,"PhoneVerificationFragment")
+
+            if (isValid){
+                callSignupApi(binding.firstNameInput.text.toString(),binding.lastNameInput.text.toString(),binding.emailInput.text.toString(),binding.countryCode.text.toString(),binding.mobileNumber.text.toString(),loginType,binding.passwordInput.text.toString(),session.deviceId,deviceType)
+            }
         }
-        binding.back.setOnClickListener{
+        binding.back.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    private fun callSignupApi(firstName: String, lastName: String, email: String, countryCode: String, mobileNumber: String, loginType: String, password: String, deviceToken: String, deviceType: String) {
+
+        val signupRequest = SignupRequest(
+            firstName,
+            lastName,
+            email,
+            countryCode,
+            mobileNumber,
+            loginType,
+            password,
+            password,
+            deviceType
+        )
+
+        loginViewModel.signup(signupRequest)
+    }
+
+    private fun observeLiveData() {
+        loginViewModel.signUpLiveData.observe(this, { responseBody ->
+
+            val code = responseBody.responseCode
+            Log.d("SignupFragment", "Data: $code")
+            if (code == 1) {
+                Toast.makeText(
+                    requireContext(),
+                    "Signup Successful, Code: $code",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                val cleanedNumber = binding.mobileNumber.text?.filter { it.isDigit() }
+
+                var mobileNumber = ""
+
+                if (cleanedNumber != null) {
+
+                    val formattedNumber = when (cleanedNumber.length) {
+                        10 -> "${cleanedNumber.substring(0, 3)}-${
+                            cleanedNumber.substring(
+                                3,
+                                6
+                            )
+                        }-${cleanedNumber.substring(6)}"
+
+                        else -> cleanedNumber
+                    }
+
+                    mobileNumber = "$selectedCountryCode-$formattedNumber"
+                }
+
+                val bundle = Bundle()
+                bundle.putString("mobileNumber", mobileNumber)
+                bundle.putString("nextPage", "DashboardActivity")
+                navigator.load(PhoneVerificationFragment::class.java).setBundle(bundle).replace(true,"PhoneVerificationFragment")
+
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Signup Unsuccessful, Code: $code", Toast.LENGTH_LONG
+                ).show()
+            }
+        })
     }
 }

@@ -21,7 +21,20 @@ class AdapterProductCardHorizontal :
 
     inner class ViewHolder(val rootView: ViewProductCardHorizontalBinding) :
         RecyclerView.ViewHolder(rootView.root) {
-        fun setData(productCard: ProductCard) {
+
+        fun setData(productCard: ProductCard,position: Int) {
+
+            val layoutParams = itemView.layoutParams as ViewGroup.MarginLayoutParams
+            val extraEndMargin = itemView.resources.getDimension(com.intuit.sdp.R.dimen._10sdp).toInt()
+
+            if (position == productCardList.size - 1) {
+                layoutParams.marginEnd = extraEndMargin
+            }
+            else{
+                layoutParams.marginEnd = 0
+            }
+
+            itemView.layoutParams = layoutParams
 
             rootView.productImage.setImageResource(productCard.productImage)
             rootView.productName.text = productCard.productName
@@ -68,6 +81,6 @@ class AdapterProductCardHorizontal :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(productCardList[position])
+        holder.setData(productCardList[position],position)
     }
 }

@@ -22,5 +22,4 @@ open class BaseDataSource {
             DataWrapper(null, e)
         }
     }
-
 }
